@@ -1,0 +1,55 @@
+import java.io.File;
+import java.util.logging.*;
+
+private static void setupLogger() {
+    try {
+        // Ensure logs directory exists
+        File logDir = new File("logs");
+        if (!logDir.exists()) {
+            if (logDir.mkdir()) {
+                System.out.println("Logs directory created.");
+            } else {
+                System.err.println("Failed to create logs directory.");
+            }
+        }
+
+        // Create log file handler
+        Handler fileHandler = new FileHandler("logs/application.log", true);
+        fileHandler.setFormatter(new SimpleFormatter());
+
+        Logger rootLogger = Logger.getLogger("");
+        rootLogger.addHandler(fileHandler);
+
+    } catch (Exception e) {
+        System.err.println("Logging setup failed: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+Sep 28, 2025 11:44:25 AM Main main
+INFO: StarBuzz Coffee Shop Application Started
+Sep 28, 2025 11:44:34 AM Main main
+INFO: Order placed: Espresso, Mocha - Cost: $2.5
+Sep 28, 2025 11:45:05 AM Main main
+INFO: Order placed: Espresso - Cost: $2.0
+Sep 28, 2025 11:45:23 AM Main main
+INFO: Order placed: House Blend Coffee, Milk - Cost: $1.8
+Sep 28, 2025 11:45:36 AM Main main
+INFO: Application exited by user.
+Sep 28, 2025 11:48:46 AM Main main
+INFO: StarBuzz Coffee Shop Application Started
+Sep 28, 2025 11:48:56 AM Main main
+INFO: Order placed: Espresso, Mocha - Cost: $2.5
+Sep 28, 2025 11:49:20 AM Main main
+INFO: Order placed: Espresso, Milk - Cost: $2.3
+Sep 28, 2025 11:51:54 AM Main main
+INFO: StarBuzz Coffee Shop Application Started
+Sep 28, 2025 11:52:02 AM Main main
+INFO: Order placed: Espresso, Milk - Cost: $2.3
+Sep 28, 2025 11:52:12 AM Main main
+INFO: StarBuzz Coffee Shop Application Started
+Sep 28, 2025 11:52:15 AM Main main
+INFO: Order placed: Espresso, Milk - Cost: $2.3
+Sep 28, 2025 11:52:24 AM Main main
+INFO: Order placed: House Blend Coffee, Mocha - Cost: $2.0
+Sep 28, 2025 11:52:31 AM Main main
+INFO: Application exited by user.
