@@ -22,7 +22,7 @@ public class App {
         System.out.println("           block <roomId> <HH:mm> <durationMinutes>");
         System.out.println("           cancel <roomId>");
         System.out.println("           occupant <roomId> <count>");
-        System.out.println("           cdstats");
+        System.out.println("           stats");
         System.out.println("           exit");
 
         while (running) {
